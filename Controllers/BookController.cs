@@ -1,4 +1,4 @@
-﻿using books_api.Entities;
+﻿using BookStoreApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace books_api.Controllers
@@ -11,10 +11,10 @@ namespace books_api.Controllers
         public IActionResult GetAll()
         {
             var books = new List<Book> {
-                new Book() { Id =  Guid.NewGuid(), Title = "Livro 1", Author = "Author teste", Gender = "Desenvolvimento pessoal"},
-                new Book() { Id =  Guid.NewGuid(), Title = "Livro 2", Author = "Author teste 2", Gender = "Ficção"},
-                new Book() { Id =  Guid.NewGuid(), Title = "Livro 3", Author = "Author teste", Gender = "Desenvolvimento pessoal", Description = "Um livro pra quem quer crescer"},
-                new Book() { Id =  Guid.NewGuid(), Title = "Livro 4", Author = "Author teste 3", Gender = "Fantasia", edition = "3"}
+                new Book() {  Title = "Livro 1", Author = "Author teste", Category = "Desenvolvimento pessoal"},
+                new Book() { Title = "Livro 2", Author = "Author teste 2", Category = "Ficção"},
+                new Book() { Title = "Livro 3", Author = "Author teste", Category = "Desenvolvimento pessoal", Description = "Um livro pra quem quer crescer"},
+                new Book() { Title = "Livro 4", Author = "Author teste 3", Category = "Fantasia", edition = "3"}
             };
             return Ok(books);
         }
