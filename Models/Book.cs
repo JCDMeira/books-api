@@ -11,7 +11,7 @@ public class Book
 
     [BsonElement("Title")]
     public string Title { get; set; } = null!;
-
+        
     public decimal Price { get; set; }
     public string Description { get; set; } = null!;
 
@@ -20,5 +20,5 @@ public class Book
     public string Author { get; set; } = null!;
 
 
-    public string edition { get; set; } = null!;
+    public int edition { get; set; } 
 }

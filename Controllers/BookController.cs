@@ -1,4 +1,5 @@
 ﻿using BookStoreApi.Models;
+using BookStoreApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace books_api.Controllers
@@ -7,16 +8,21 @@ namespace books_api.Controllers
     [ApiController]
     public class BookController : Controller
     {
+        private readonly BooksService _booksService;
+
+        public BookController(BooksService booksService) =>
+            _booksService = booksService;
+
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<List<Book>> Get() =>
+        await _booksService.GetAsync();
+
+        [HttpPost]
+        public async Task<IActionResult> Post(Book newBook)
         {
-            var books = new List<Book> {
-                new Book() {  Title = "Livro 1", Author = "Author teste", Category = "Desenvolvimento pessoal"},
-                new Book() { Title = "Livro 2", Author = "Author teste 2", Category = "Ficção"},
-                new Book() { Title = "Livro 3", Author = "Author teste", Category = "Desenvolvimento pessoal", Description = "Um livro pra quem quer crescer"},
-                new Book() { Title = "Livro 4", Author = "Author teste 3", Category = "Fantasia", edition = "3"}
-            };
-            return Ok(books);
+            await _booksService.CreateAsync(newBook);
+
+            return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
         }
     }
 }
