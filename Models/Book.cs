@@ -21,4 +21,8 @@ public class Book
 
 
     public int? Edition { get; set; } = null!;
+
+    public DateTime? Created_time { get;  } =  DateTime.Now!;
+
+    public DateTime? updated_time { get; set; } = DateTime.Now!;
 }
