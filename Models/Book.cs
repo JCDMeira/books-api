@@ -13,12 +13,12 @@ public class Book
     public string Title { get; set; } = null!;
         
     public decimal Price { get; set; }
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; } = null!;
 
     public string Category { get; set; } = null!;
 
     public string Author { get; set; } = null!;
 
 
-    public int edition { get; set; } 
+    public int? Edition { get; set; } = null!;
 }
