@@ -24,5 +24,5 @@ public class Book
 
     public DateTime? Created_time { get;  } =  DateTime.Now!;
 
-    public DateTime? updated_time { get; set; } = DateTime.Now!;
+    public DateTime? Updated_time { get; set; } = DateTime.Now!;
 }
