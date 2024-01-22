@@ -45,7 +45,7 @@ namespace books_api.Controllers
                 return NotFound();
 
             updatedBook.Id = book.Id;
-            updatedBook.updated_time = DateTime.Now;
+            updatedBook.Updated_time = DateTime.Now;
 
             await _booksService.UpdateAsync(id, updatedBook);
 
